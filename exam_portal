@@ -1,0 +1,20 @@
+exam-portal/
+│
+├── server.js
+├── database.db
+│
+├── public/
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── style.css
+│   └── script.js
+│
+├── materials/
+│   ├── UPSC/
+│   ├── NEET/
+│   ├── JEE/
+│   └── TNPSC/
+│
+└── package.json

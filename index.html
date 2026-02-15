@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exam Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>OMNIXAM Portal</h1>
+
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+<form action="/register" method="POST">
+
+<input name="name" placeholder="Name" required>
+
+<input name="email" placeholder="Email" required>
+
+<input name="password" type="password" placeholder="Password" required>
+
+<select name="exam">
+
+<option>UPSC</option>
+<option>NEET</option>
+<option>JEE</option>
+<option>TNPSC</option>
+
+</select>
+
+<select name="state">
+
+<option>Tamilnadu</option>
+<option>Kerala</option>
+<option>Karnataka</option>
+
+</select>
+
+<button>Register</button>
+
+</form>
+<form action="/login" method="POST">
+
+<input name="email" placeholder="Email">
+
+<input name="password" type="password">
+
+<button>Login</button>
+
+</form>
+<h1>Dashboard</h1>
+
+<h2 id="exam"></h2>
+
+<ul id="materials"></ul>
+
+<script>
+
+fetch("/user")
+.then(res=>res.json())
+.then(user=>{
+
+document.getElementById("exam").innerText =
+"Your Exam: " + user.preferred_exam;
+
+});
+
+fetch("/materials")
+.then(res=>res.json())
+.then(files=>{
+
+let list = document.getElementById("materials");
+
+files.forEach(file=>{
+let li=document.createElement("li");
+li.innerText=file;
+list.appendChild(li);
+});
+
+});
+
+</script>
+
+</body>
+</html>
